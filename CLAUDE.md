@@ -27,7 +27,7 @@ First-time setup, if the repo does not exist yet:
 3. Run `git remote add origin <repo-url>`, then `git branch -M main`, then `git push -u origin main`.
 
 Day-to-day workflow:
-1. Run `git status` before starting.
+1. Run `git status` and `git pull` before starting.
 2. Make one focused change at a time, and commit it with a short imperative message (for example "Add alarm cleanup on tab close"). Commit working states only.
 3. Do small work directly on `main`. For anything bigger or risky, use a branch (`git switch -c feature-name`), push it, open a pull request, and ask for review by user when it works.
 4. Never commit secrets or personal data. None are needed for this project.
