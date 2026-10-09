@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Tab Refresher",
+  "version": "1.0.0",
+  "description": "Reloads a tab every X minutes to keep a logged-in session alive.",
+  "permissions": ["alarms", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Auto Tab Refresher",
+    "default_popup": "popup.html"
+  }
+}
