@@ -12,12 +12,10 @@ A Chrome extension that reloads a tab every X minutes to keep a logged-in sessio
 Works on desktop Google Chrome (Windows, macOS, Linux). Not Edge, Firefox, or mobile.
 
 1. Go to the [latest release](https://github.com/kborisov1/Auto-Tab-Refresher/releases/latest) and download `Auto-Tab-Refresher.zip`.
-2. Unzip it somewhere permanent, such as `Documents`. Do not delete the folder afterwards, because Chrome reads the files from it.
+2. Unzip it somewhere permanent. Do not delete the folder afterwards, because Chrome reads the files from it.
 3. Open `chrome://extensions` in Chrome and turn on **Developer mode** (top-right).
-4. Click **Load unpacked** and select the `Auto-Tab-Refresher` folder (the one that contains `manifest.json`).
+4. Click **Load unpacked** and select the `Auto-Tab-Refresher` folder.
 5. Optional: click the puzzle-piece icon in the toolbar and pin **Auto Tab Refresher**.
-
-To update, download the new release, replace the folder's contents, and click the reload icon on the extension's card in `chrome://extensions`.
 
 ## Use
 
