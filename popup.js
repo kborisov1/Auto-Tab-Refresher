@@ -1,19 +1,58 @@
 const statusEl = document.getElementById("status");
+const countdownEl = document.getElementById("countdown");
 const formEl = document.getElementById("form");
 const minutesEl = document.getElementById("minutes");
 const stopEl = document.getElementById("stop");
 const messageEl = document.getElementById("message");
 
 let tabId = null;
+let countdownTimer = null;
+
+function formatRemaining(ms) {
+  const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const mm = String(minutes).padStart(2, "0");
+  const ss = String(seconds).padStart(2, "0");
+  return hours > 0 ? `${hours}:${mm}:${ss}` : `${mm}:${ss}`;
+}
+
+function stopCountdown() {
+  clearInterval(countdownTimer);
+  countdownTimer = null;
+  countdownEl.textContent = "";
+}
+
+// The alarm's scheduledTime is the next refresh; it advances after each tick.
+async function startCountdown() {
+  stopCountdown();
+  const alarm = await chrome.alarms.get(`tab:${tabId}`);
+  if (!alarm) {
+    return;
+  }
+  const update = () => {
+    const remaining = alarm.scheduledTime - Date.now();
+    countdownEl.textContent = `Next refresh in ${formatRemaining(remaining)}`;
+    if (remaining <= 0) {
+      // Re-read so the countdown rolls over to the next period.
+      startCountdown();
+    }
+  };
+  update();
+  countdownTimer = setInterval(update, 1000);
+}
 
 function render(state) {
   if (state.running) {
     statusEl.textContent = `Running every ${state.intervalMinutes} min`;
     statusEl.className = "running";
     minutesEl.value = state.intervalMinutes;
+    startCountdown();
   } else {
     statusEl.textContent = "Stopped";
     statusEl.className = "";
+    stopCountdown();
   }
   stopEl.disabled = !state.running;
 }

@@ -12,7 +12,13 @@ h1 {
 }
 
 #status {
+  margin: 0 0 4px;
+}
+
+#countdown {
+  min-height: 1em;
   margin: 0 0 10px;
+  font-variant-numeric: tabular-nums;
 }
 
 #status.running {
