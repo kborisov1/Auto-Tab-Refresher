@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Auto Tab Refresher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Auto Tab Refresher</h1>
+  <p id="status">Loading…</p>
+  <form id="form" novalidate>
+    <label for="minutes">Interval (minutes)</label>
+    <input id="minutes" type="number" min="1" step="1" inputmode="numeric" autofocus>
+    <div class="buttons">
+      <button id="start" type="submit">Start</button>
+      <button id="stop" type="button">Stop</button>
+    </div>
+  </form>
+  <p id="message" role="alert"></p>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {
+  width: 220px;
+  margin: 0;
+  padding: 12px;
+  font: 13px system-ui, sans-serif;
+  color: #202124;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+#status {
+  margin: 0 0 10px;
+}
+
+#status.running {
+  color: #188038;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  font: inherit;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button {
+  flex: 1;
+  padding: 5px 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+#message {
+  min-height: 1em;
+  margin: 8px 0 0;
+  color: #d93025;
+}
